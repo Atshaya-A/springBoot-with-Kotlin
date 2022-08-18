@@ -48,4 +48,15 @@ class ToDoServiceTest {
 
         assertEquals(toDoToBeUpdated, toDoOfGivenId)
     }
+
+    @Test
+    fun `should delete an existing toDo`() {
+        val toDoData = ToDoMockData.toDoList.data[0]
+
+        toDoService.deleteToDo("todo-2")
+        val toDoList = toDoService.getAllToDos()
+
+        assertEquals(1, toDoList.data.size)
+        assertEquals(toDoData, toDoList.data[0])
+    }
 }

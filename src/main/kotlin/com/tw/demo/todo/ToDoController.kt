@@ -1,6 +1,7 @@
 package com.tw.demo.todo
 
 import org.springframework.http.HttpStatus
+import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
@@ -30,10 +31,16 @@ class ToDoController(val toDoService: ToDoService) {
         toDoService.createToDo(toDo)
     }
 
-    @PutMapping("todos/{id}")
+    @PutMapping("/todos/{id}")
     @ResponseStatus(HttpStatus.OK)
     fun updateToDo(@RequestBody toDo: ToDo, @PathVariable id: String) {
         toDoService.updateToDo(id, toDo)
+    }
+
+    @DeleteMapping("/todos/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    fun deleteToDo(@PathVariable id: String) {
+        toDoService.deleteToDo(id)
     }
 
 }

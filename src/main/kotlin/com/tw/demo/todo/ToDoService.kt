@@ -27,4 +27,8 @@ class ToDoService {
         toDos.forEachIndexed { index, toDo -> if (toDo.id == id) toDos[index] = updatedToDo }
     }
 
+    fun deleteToDo(id: String) {
+        toDos.removeIf { it.id == id }
+    }
+
 }
