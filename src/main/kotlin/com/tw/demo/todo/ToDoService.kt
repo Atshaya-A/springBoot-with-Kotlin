@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service
 @Service
 class ToDoService {
 
-    private var toDos = listOf(
+    private var toDos = mutableListOf(
         ToDo("todo-1", "kotlin", "learn java", "high"),
         ToDo("todo-2", "spring", "learn spring framework", "low")
     )
@@ -20,7 +20,11 @@ class ToDoService {
     }
 
     fun createToDo(toDo: List<ToDo>) {
-        toDos = toDos + toDo
+        toDo.forEach { toDos.add(it) }
+    }
+
+    fun updateToDo(id: String, updatedToDo: ToDo) {
+        toDos.forEachIndexed { index, toDo -> if (toDo.id == id) toDos[index] = updatedToDo }
     }
 
 }

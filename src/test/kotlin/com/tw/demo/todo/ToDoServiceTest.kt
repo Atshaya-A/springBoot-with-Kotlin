@@ -38,4 +38,14 @@ class ToDoServiceTest {
         assertEquals(3, toDoList.data.size)
         assertEquals(ToDoMockData.toDoList.data + listOf(toDoToBeCreated), toDoList.data)
     }
+
+    @Test
+    fun `should update an existing toDo`() {
+        val toDoToBeUpdated = ToDo("todo-1", "java", "learn java", "low")
+
+        toDoService.updateToDo(toDoToBeUpdated.id, toDoToBeUpdated)
+        val toDoOfGivenId = toDoService.getToDo(toDoToBeUpdated.id)
+
+        assertEquals(toDoToBeUpdated, toDoOfGivenId)
+    }
 }
