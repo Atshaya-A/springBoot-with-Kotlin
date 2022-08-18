@@ -19,4 +19,8 @@ class ToDoService {
         return foundToDo[0]
     }
 
+    fun createToDo(toDo: List<ToDo>) {
+        toDos = toDos + toDo
+    }
+
 }
