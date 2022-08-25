@@ -1,0 +1,5 @@
+fileignoreconfig:
+- filename: src/main/resources/db/migration/V1__init_schema__.sql
+  checksum: 5b5f2ed24cfa14f9e2f07760eb9acb585b5d334c3b8d750e91c71a4a72a4af41
+- filename: src/main/resources/db/migration/V2__insert_todos__.sql
+  checksum: cd62f94fd7374ab772da2339dc2a3dc7a76471a63fb84477c311375be7a54c74
